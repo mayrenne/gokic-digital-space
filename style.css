@@ -1,0 +1,59 @@
+/*
+We can animate a background image using CSS by combining variables, keyframes, and background positioning.
+We use three ideas:
+1. Store the image
+2. Apply the animation
+3. Define the movement
+*/
+
+/* 
+STEP 1: store
+This is the image we will use for the background. We put it in a variable
+here for later use. It lets us reuse or change the image in 1 place.
+*/
+:root {
+  --bgimage: url("images/bg-ds_blueinvert.png");
+}
+
+/*
+STEP 2: animation
+We define a property-value pair to put this image in the background & animate it
+
+bgMove	--> Name of the animation
+60s	--> Duration
+linear	--> Constant speed
+infinite	--> Never stops
+*/
+body {
+    background-image: var(--bgimage);
+
+    /* This line doesn’t define movement — it just says “use an animation called bgMove" */
+    animation: bgMove 60s linear infinite;
+}
+
+/*
+STEP 3: movement: we are sliding the background inside the element
+
+from = starting position
+
+to = ending position
+
+Coordinate intuition:
+0 0 = top-left
+
+1000px -1000px = right + up
+*/
+@keyframes bgMove {
+  from {
+    background-position: 0 0;
+  }
+  to {
+    background-position: 1000px -1000px;
+  }
+}
+
+/*
+Guided play:
+- have students change the speed 
+- have students change the direction
+*/
